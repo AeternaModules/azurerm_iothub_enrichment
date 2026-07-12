@@ -1,3 +1,7 @@
+output "iothub_enrichments_id" {
+  description = "Map of id values across all iothub_enrichments, keyed the same as var.iothub_enrichments"
+  value       = { for k, v in azurerm_iothub_enrichment.iothub_enrichments : k => v.id }
+}
 output "iothub_enrichments_endpoint_names" {
   description = "Map of endpoint_names values across all iothub_enrichments, keyed the same as var.iothub_enrichments"
   value       = { for k, v in azurerm_iothub_enrichment.iothub_enrichments : k => v.endpoint_names }
